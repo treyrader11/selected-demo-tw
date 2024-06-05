@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Bogart-Semibold";
+    src: url("../../public/fonts/bogart-semibold.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    scroll-behavior: smooth;
+    background: #eeece5;
+    cursor: none;
+    font-family: "Lexend Mega", sans-serif;
+    pointer-events: none;
+    transition-delay: 2s;
+    max-width: 100vw;
+  }
+}
