@@ -15,7 +15,7 @@ export default function Loader() {
         "flex",
         "justify-center",
         "items-center",
-        "text-[#eeece5]",
+        "text-foreground",
         "fixed",
         "w-[calc(100vw_-_5px)]",
         "h-screen",
@@ -25,13 +25,13 @@ export default function Loader() {
         "duration-[600]",
         "delay-[1.25s]",
         "origin-bottom",
-        "bg-[#fe4e01]",
+        "bg-primary",
 
         "before:absolute",
         "before:w-full",
         "before:h-[75%]",
         "before:top-[-75%]",
-        "before:bg-[#a58725]",
+        "before:bg-secondary",
         "before:[clip-path:polygon(0_15%,_100%_0,_100%_100%,_0%_100%)]"
       )}
     >

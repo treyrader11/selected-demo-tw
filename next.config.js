@@ -3,8 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      { hostname: `source.unsplash.com` },
-      { hostname: `player.vimeo.com` },
+      { hostname: `assets.codepen.io` },
+      { hostname: `w3.org` },
     ],
   },
 };
