@@ -1,0 +1,20 @@
+import { cn } from "@/lib/utils";
+
+export default function NativeLoader() {
+  return (
+    <div id="loader">
+      <div className="wrap">
+        <span>L</span>
+        <span>O</span>
+        <span>A</span>
+        <span>D</span>
+        <span>I</span>
+        <span>N</span>
+        <span>G</span>
+        <span>•</span>
+        <span>•</span>
+        <span>•</span>
+      </div>
+    </div>
+  );
+}

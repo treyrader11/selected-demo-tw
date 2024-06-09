@@ -113,7 +113,7 @@ function Panel(
           >
             <p>{desc}</p>
             <Card src={src} className="">
-              {/* <img
+              <img
                 alt={title}
                 className={cn(
                   "[transform:translateY(calc((var(--progress))*25%))_translateX(-50%)]",
@@ -136,8 +136,8 @@ function Panel(
                 )}
                 loading="lazy"
                 src={src}
-              /> */}
-              <div
+              />
+              {/* <div
                 className={cn(
                   "[transform:translateY(calc((var(--progress))*25%))_translateX(-50%)]",
                   "[filter:blur(calc(50px-(var(--progress))*125px))]",
@@ -175,7 +175,7 @@ function Panel(
                   sizes={{}}
                   alt={title}
                 />
-              </div>
+              </div> */}
             </Card>
           </div>
         </Thumb>
