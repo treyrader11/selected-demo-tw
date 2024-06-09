@@ -11,8 +11,8 @@ export default function Socials({ className }) {
         "z-[97]",
         "fixed",
         "right-2.5",
-        "relative",
         "top-2.5",
+        "relative",
         "w-[30px]",
         "h-[70px]",
         "flex",
@@ -24,19 +24,30 @@ export default function Socials({ className }) {
     >
       {socials.map(({ icon: Icon, href }, i) => {
         const isLastItem = i === socials.length - 1;
-        <a className={cn("group")} href={href} target="_blank">
+        <a
+          className={cn(
+            "group",
+            // "last:translate-x-[150px]",
+            ""
+          )}
+          href={href}
+          target="_blank"
+        >
           <Icon
             className={cn(
               "group-hover:scale-[0.9]",
-              "fill-background",
+              "group-hover:[&_svg]:fill-dark-green",
+              "[&_path]:fill-secondary",
+              "[&_path]:duration-200",
+              "[&_path]:ease-in-out",
               "[&_svg]:fill-secondary",
               "size-[25px]",
               "relative",
               "transition-transform",
               "duration-200",
               "ease-in-out",
-              "ease-transform",
-              "translate-y-[-150px]"
+              "ease-expo"
+              // "translate-y-[-150px]"
 
               // isLastItem
               //   ? "translate-x-[150px] delay-[0s,_2.6s]"

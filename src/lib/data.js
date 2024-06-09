@@ -10,7 +10,7 @@ export const projectsData = [
     src: "https://assets.codepen.io/383755/internal/screenshots/pens/xxVJZwo.default.png?fit=cover&format=auto&ha=true&height=540&quality=75&v=2&version=1569360312&width=960",
     link: "https://www.ignant.com/2023/03/25/ad2186-matthias-leidingers-photographic-exploration-of-awe-and-wonder/",
     color: "#BBACAF",
-    classNames: cn("invert"),
+    imgClass: "invert",
   },
   {
     title: "Generative Paterns 8",
@@ -19,7 +19,7 @@ export const projectsData = [
     src: "https://assets.codepen.io/383755/internal/screenshots/pens/eYOXOdB.default.png?fit=cover&format=auto&ha=true&height=540&quality=75&v=2&version=1569360312&width=960",
     link: "https://www.ignant.com/2022/09/30/clement-chapillon-questions-geographical-and-mental-isolation-with-les-rochers-fauves/",
     color: "#977F6D",
-    ImgClass: "shift",
+    imgClass: "shift",
   },
   {
     title: "NES Subscribe",
@@ -28,7 +28,7 @@ export const projectsData = [
     src: "https://assets.codepen.io/383755/internal/screenshots/pens/OJVJJoj.default.png?fit=cover&format=auto&ha=true&height=540&quality=75&v=2&version=1569360312&width=960",
     link: "https://www.ignant.com/2023/10/28/capturing-balis-many-faces-zissou-documents-the-sacred-and-the-mundane-of-a-fragile-island/",
     color: "#C2491D",
-    ImgClass: "inner",
+    imgClass: "inner",
   },
   {
     title: "CSS Neumorphic Toggle",
@@ -37,7 +37,7 @@ export const projectsData = [
     src: "https://assets.codepen.io/383755/internal/screenshots/pens/YzXOBEN.default.png?fit=cover&format=auto&ha=true&height=540&quality=75&v=2&version=1569360312&width=960",
     link: "https://www.ignant.com/2019/03/13/a-photographic-series-depicting-the-uncertain-future-of-denmarks-treasured-coastlines/",
     color: "#B62429",
-    ImgClass: "light",
+    imgClass: "light",
   },
   {
     title: "Take me on",
@@ -46,7 +46,7 @@ export const projectsData = [
     src: "https://assets.codepen.io/383755/internal/screenshots/pens/qBZWVmO.custom.png",
     link: "https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/",
     color: "#88A28D",
-    ImgClass: "inner",
+    imgClass: "inner",
   },
   {
     title: "Mark Rammers",
@@ -56,7 +56,7 @@ export const projectsData = [
 
     link: "https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/",
     color: "#88A28D",
-    ImgClass: "light",
+    imgClass: "light",
   },
 ];
 
@@ -72,4 +72,17 @@ export const socials = [
     icon: Codepen,
     href: "https://codepen.io/cobra_winfrey",
   },
+];
+
+export const frames = [
+  "https://codepen.io/cobra_winfrey/debug/xxVJZwo",
+  "https://cdpn.io/cobra_winfrey/debug/wvGyKEY",
+  "https://codepen.io/cobra_winfrey/debug/OJVJJoj",
+  "https://cdpn.io/cobra_winfrey/debug/YzXOBEN",
+  "https://codepen.io/cobra_winfrey/debug/qBZWVmO",
+  "https://codepen.io/cobra_winfrey/debug/eYOXOdB",
+  "https://codepen.io/cobra_winfrey/debug/OJXJeod",
+  "https://codepen.io/cobra_winfrey/debug/PoqVQRq",
+  "https://cdpn.io/cobra_winfrey/debug/qgEGMZ",
+  "https://codepen.io/cobra_winfrey/debug/RwWYGxj",
 ];

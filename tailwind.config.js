@@ -17,6 +17,7 @@ module.exports = {
         primary: "#fe4e01",
         secondary: "#a58725",
         foreground: "#eeece5",
+        sky: "#00eded",
         // background: "#08350e",
         "dark-green": "#08350e",
         // primary: "hsl(var(--primary))",
@@ -29,8 +30,8 @@ module.exports = {
         secondary: "0 0 0 2px #a58725, 0 0 0 0 #eeece5, 0 0 0 0 #fe4e01",
       },
       transitionTimingFunction: {
-        //use on social icons
-        transform: "cubic-bezier(1, 0.885, 0.32, 1) 0.6s transform",
+        elastic: "cubic-bezier(1, 0.885, 0.32, 1) 0.6s transform",
+        expo: "cubic-bezier(1, 0.885, 0.32, 1)",
       },
       animation: {
         popping: "popping 0.25s ease-in-out infinite alternate", // used on loader

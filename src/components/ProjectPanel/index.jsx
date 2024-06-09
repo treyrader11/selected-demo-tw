@@ -2,14 +2,17 @@
 
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
+import Title from "./Title";
 
 function ProjectPanel(
   {
+    index,
     className,
-    onMouseOut,
+    onMouseLeave,
     onMouseOver,
     onClick,
+    isActive,
     title,
     desc,
     imgClass,
@@ -18,23 +21,24 @@ function ProjectPanel(
   },
   ref
 ) {
-  // const [isHovering, setIsHovering] = useState(false);
-
+  const activeClass = cn("cursor-auto", "overflow-hidden", "");
   return (
     <div
       ref={ref}
       onMouseOver={onMouseOver}
-      onMouseLeave={onMouseOut}
+      onMouseLeave={onMouseLeave}
       onClick={onClick}
       style={{
         transformStyle: "preserve-3d",
         backfaceVisibility: "hidden",
-        WebkitTextStroke: "2px #a58725",
+        WebkitTextStroke: "2px #a58725", //dope outline
         background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B animation:wave 1s ease-in-out infinite alternate; animation-delay:-0.25s; stroke:%23a58725; stroke-width:2; stroke-linecap:square; %7D @keyframes wave%7B to%7B d:path('M 0 40 Q 20 42.5 40 40 Q 60 37.5 80 40'); %7D %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 37.5 40 40 Q 60 42.5 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E") 0px 65px/80px 80px repeat-x`,
       }}
       className={cn(
         "panel",
 
+        isActive ? "active hoverLink" : "",
+        // "animate-waving",
         "relative",
         "w-full",
         "h-screen",
@@ -50,11 +54,14 @@ function ProjectPanel(
         "px-0",
         "-my-5",
         "mx-0",
-        "ease-transform",
+        "ease-elastic",
         // "opacity-0",
         // "opacity-100",
         "transition-[delay]",
-        "duration-[1.75s]",
+        "duration-[1s]",
+        "even:[&_.thumb]:after:-scale-x-100",
+        "even:[&_.thumb]:after:left-1/2",
+
         "before:opacity-[0.15]",
         "before:duration-[2.5s]",
 
@@ -98,14 +105,18 @@ function ProjectPanel(
         "before:text-foreground",
         "before:[-webkit-text-stroke]:[2px_#a58725]",
         "before:leading-[1]",
-        // isHovering ? "before:opacity-100" : "before:opacity-0",
+        //  isActive ? "before:opacity-100" : "before:opacity-0",
         "before:ease-in-out",
         "before:duration-[1.75s]",
         "before:transition",
         className
       )}
     >
+      {/* <Title text={title} progress={progress} /> */}
       <h2
+        style={{
+          transform: `translateY(calc(100px - ${progress} * 200px)))`,
+        }}
         className={cn(
           "dark",
           "[grid-area:_3/1/4/4]",
@@ -115,8 +126,8 @@ function ProjectPanel(
           "z-[3]",
           "text-transparent",
           "leading-[1]",
-          "pointer-events-none",
-          "translate-y-[calc(100px_-_0_*_200px)]"
+          "pointer-events-none"
+          // "translate-y-[calc(100px_-_0_*_200px)]"
         )}
         data-splitting="words"
       >
@@ -183,7 +194,8 @@ function ProjectPanel(
           "after:rounded-tr-none",
           "after:rounded-b-[10px]",
           "after:rounded-l-none",
-          "after:opacity-25"
+          "after:opacity-25",
+          // isActive && "after:border-r-primary after:border-b-primary"
         )}
       >
         <p>{desc}</p>
@@ -227,7 +239,8 @@ function ProjectPanel(
             "after:bg-foreground",
             "after:mix-blend-normal",
             // "after:opacity-100",
-            "after:z-[-2]"
+            "after:z-[-2]",
+            imgClass
           )}
         >
           <Image
@@ -246,8 +259,8 @@ function ProjectPanel(
               "[filter:_saturate(0)]",
               "blur-[(calc(50px_-_0_*_125px))]",
               "[filter:_brightness(0.5)]",
-              "blur-[contrast(4)]",
-              imgClass
+              "blur-[contrast(4)]"
+              // imgClass
             )}
             alt=""
             fill

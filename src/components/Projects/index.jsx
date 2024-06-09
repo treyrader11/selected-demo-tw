@@ -4,13 +4,13 @@ import { cn } from "@/lib/utils";
 import ProjectPanel from "../ProjectPanel";
 import { projectsData } from "@/lib/data";
 import Socials from "../Socials";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 
 function Projects(
-  { progress, onCardMouseOver, onCardMouseOut, onCardClick },
+  { progress, onCardMouseOver, isHovering, onCardMouseOut, onCardClick },
   ref
 ) {
-  // this will likely become home layout
+  const [onMouseOver, setOnMouseOver] = useState(false);
   return (
     <>
       <p
@@ -28,22 +28,21 @@ function Projects(
           "duration-[600]",
           "ease-in-out",
           "translate-y-0",
-          // "opacity-100",
+          "opacity-100",
           "delay-[2s]"
         )}
       >
         Trey Rader
       </p>
 
-      {/* {projectsData.map((proj, i) => (
-        <Panel {...proj} key={i} />
-      ))} */}
       {projectsData.map((proj, i) => (
         <ProjectPanel
           {...proj}
           key={i}
-          onMouseOver={onCardMouseOver}
-          onMouseOut={onCardMouseOut}
+          index={i}
+          isActive={onMouseOver}
+          onMouseOver={() => setOnMouseOver(true)}
+          onMouseLeave={() => setOnMouseOver(false)}
           onClick={() => onCardClick(i)}
           ref={(el) => (ref.current[i] = el)}
         />

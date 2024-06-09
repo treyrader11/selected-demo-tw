@@ -5,6 +5,8 @@ import "./globals.css";
 import Socials from "@/components/Socials";
 import { useState, useEffect } from "react";
 import Loader from "@/components/Loader";
+import Cursor from "@/components/Cursor";
+import Frame from "@/components/Frame";
 
 // export const metadata = {
 //   title: "Trey Rader - Portfolio 2024",
@@ -22,12 +24,6 @@ export default function RootLayout({ children }) {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll();
-
-      setTimeout(() => {
-        setIsLoading(false);
-        document.body.style.cursor = "default";
-        window.scrollTo(0, 0);
-      }, 1700);
     })();
   }, []);
 
@@ -35,17 +31,16 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={cn(
-          { loading: isLoading },
+          // { loading: isLoading },
+          // isActive && cn("overflow-hidden", "cursor-auto"), //when project is clicked
           "bg-foreground",
-          // "cursor-none",
           "scroll-smooth",
-          // "pointer-events-none",
           "max-w-screen",
-          "delay-[2s]"
+          "delay-[2000]"
         )}
       >
-        {isLoading ? <Loader /> : children}
-        <Socials />
+        {children}
+        {/* {isLoading ? <Loader /> : children} */}
       </body>
     </html>
   );

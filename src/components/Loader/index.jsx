@@ -8,7 +8,6 @@ export default function Loader() {
       style={{
         transformStyle: "preserve-3d",
         backfaceVisibility: "hidden",
-        transition: "transform 0.6s cubic-bezier(1, 0.885, 0.32, 1);",
       }}
       id="loader"
       className={cn(
@@ -26,6 +25,7 @@ export default function Loader() {
         "delay-[1.25s]",
         "origin-bottom",
         "bg-primary",
+        "ease-elastic",
 
         "before:absolute",
         "before:w-full",
@@ -41,7 +41,15 @@ export default function Loader() {
             "opacity 0.4s ease-in-out, animation-play-state 2s ease-in-out",
           transitionDelay: "0s, 0.4s",
         }}
-        className={cn("wrap", "size-2.5", "relative", "animate-rotate")}
+        className={cn(
+          "wrap",
+          "size-2.5",
+          "relative",
+          "animate-rotate",
+          // "transition-opacity",
+          // "ease-in-out",
+          // "duration-[400]"
+        )}
       >
         {letters.split("").map((letter, i) => (
           <Letter key={i} val={letter} index={i} className={cn("")} />

@@ -1,10 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import GoBack from "../GoBack";
+import CloseBtn from "../CloseBtn";
 import { forwardRef } from "react";
+import Cursor from "../Cursor";
 
-function Frame({ className, src, isActive }, ref) {
+function Frame({ className, src, isActive, setIsActive }, ref) {
   return (
     <div
       ref={ref}
@@ -20,8 +21,9 @@ function Frame({ className, src, isActive }, ref) {
         "bg-foreground",
         "grid",
         "place-items-center",
-        "ease-transform",
-        isActive ? cn("") : cn("translate-x-[125%]"),
+        "ease-elastic",
+        "translate-x-[125%]",
+        isActive ? cn("translate-x-0") : "",
         "delay-[0.5s]",
         "[will-change:_transform]",
         //before
@@ -31,7 +33,7 @@ function Frame({ className, src, isActive }, ref) {
         "before:top-0",
         "before:left-[-12.5%]",
         "before:bg-primary",
-        "before:ease-transform",
+        "before:ease-elastic",
         "before:delay-[0.25s]",
         "before:z-[99]",
         "before:skew-x-[5deg]",
@@ -40,82 +42,11 @@ function Frame({ className, src, isActive }, ref) {
         "after:z-[98]",
         "after:bg-[linear-gradient(to_right,_#eeece5_75%,_#a58725_100%)]",
         "after:w-[125%]",
-        "after:ease-transform",
+        "after:ease-elastic",
         className
       )}
     >
-      <GoBack />
-      {/* <div
-        id="close"
-        className={cn(
-          "z-[999]",
-          "left-[45px]",
-          "top-[45px]",
-          "size-[30px]",
-          "shadow-primary",
-          "bg-foreground",
-          "rounded-full",
-          "absolute",
-          "cursor-pointer",
-          "rotate-180",
-          "scale-0",
-          "group",
-          //before
-          "hover:before:bg-foreground",
-          "hover:after:bg-foreground"
-        )}
-      >
-        <div
-          className={cn(
-            "group-hover:bg-foreground",
-            "absolute",
-            "top-[calc(50%_-_1px)]",
-            "w-5",
-            "left-[5px]",
-            "h-[2px]",
-            "bg-background",
-            "transition-transform",
-            "duration-300",
-            "ease-in-out",
-            "delay-[0.6s]",
-            "origin-right",
-            "scale-x-0",
-            //before
-            "before:absolute",
-            "before:size-20",
-            "before:rounded-full",
-            "before:top-[-40px]",
-            "before:left-[-30px]",
-            "before:bg-background",
-            "before:w-2.5",
-            "before:h-[2px]",
-            "before:top-[calc(50%_-_1px)]",
-            "before:left-[14px]",
-            "before:ease-transform",
-            "before:delay-[0.3s]",
-            "before:origin-right",
-            "before:scale-y-0",
-            "before:rotate-0",
-            "before:z-[9]",
-            //after
-            "after:absolute",
-            "after:bg-background",
-            "after:w-2.5",
-            "after:h-[2px]",
-            "after:top-[calc(50%_-_1px)]",
-            "after:left-[14px]",
-            "after:ease-transform",
-            "after:delay-[0.3s]",
-            "after:origin-right",
-            "after:scale-y-0",
-            "after:rotate-0",
-            "after:z-[9]"
-          )}
-        />
-        <strong className="circle" data-splitting="chars">
-          GO•BACK•
-        </strong>
-      </div> */}
+      <CloseBtn onClick={() => setIsActive(false)} isActive={isActive} />
       <div
         className={cn(
           "frame-wrap",
@@ -158,7 +89,7 @@ function Frame({ className, src, isActive }, ref) {
             id="pen"
             loading="lazy"
             src={src}
-            // style="border: 0"
+            style={{ border: 0 }}
           />
           <a
             className={cn(
@@ -191,8 +122,9 @@ function Frame({ className, src, isActive }, ref) {
               View the Code
               <span
                 className={cn(
-                  "animate-back-n-forth",
-                  "[animation-play-state:_paused]"
+                  isActive
+                    ? "animate-back-n-forth"
+                    : "[animation-play-state:_paused]"
                 )}
               >
                 &rarr;

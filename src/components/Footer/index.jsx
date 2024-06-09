@@ -1,36 +1,20 @@
 import { cn } from "@/lib/utils";
+import DashedBorder from "../DashedBorder";
 
-export default function Footer() {
+export default function Footer({ className }) {
   return (
-    <div className={cn("")}>
-      <p
+    <div className={className}>
+      <DashedBorder
         className={cn(
-          "subhead",
-
-          "text-background",
-          "my-0",
-          "mx-auto",
+          "text-dark-green",
           "w-[100px]",
-          //before dashed border
-          "before:absolute",
-          "before:w-[25vw]",
-          "before:max-w-[500px]",
-          "before:border-b-[2px]",
-          "before:border-secondary",
-          "before:border-dashed",
-          //after dashes
-          "after:absolute",
-          "after:w-[25vw]",
-          "after:max-w-[500px]",
-          "after:border-b-[2px]",
-          "after:border-secondary",
-          "after:border-dashed",
-          "after:left-auto",
-          "after:right-[100px]",
+          "final",
+          "my-0",
+          "mx-auto"
         )}
       >
         Footer
-      </p>
+      </DashedBorder>
     </div>
   );
 }
